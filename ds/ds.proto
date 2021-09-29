@@ -1,0 +1,25 @@
+syntax = "proto3";
+package ds;
+option go_package = "github.com/vlpoc/proto/ds";
+
+import "auth/auth.proto";
+
+service DS {
+	rpc Lookup (DSQuery) returns (DSResponse);
+	rpc Register (stream Registration) returns (Empty);
+}
+
+message DSQuery {
+	string				service = 1;
+	optional auth.Actor	actor   = 2;
+}
+
+message DSResponse {
+	
+}
+
+message Registration {
+
+}
+
+message Empty{}
