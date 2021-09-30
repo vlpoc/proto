@@ -15,11 +15,14 @@ message DSQuery {
 }
 
 message DSResponse {
-	
+	string	  	service    = 1;
+	auth.Actor	actor      = 2;
+	string		connstring = 3;
 }
 
 message Registration {
-
+	string	service    = 1;
+	string	connstring = 2;
 }
 
 message Empty{}
