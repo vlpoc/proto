@@ -1,0 +1,19 @@
+syntax = "proto3";
+package auth;
+option go_package = "github.com/vlpoc/proto/authpb";
+
+// The auth service is responsible for authenticating actors in the
+// system.
+service Auth {
+	rpc Login (stream AuthMsg) returns (stream AuthMsg);
+}
+
+message AuthMsg {
+	enum MsgType {
+		CHALLENGE = 0;
+		RESPONSE = 1;
+		CERT = 2;
+	}
+	MsgType	msgtype = 1;
+	bytes	msg     = 2;
+}

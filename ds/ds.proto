@@ -2,27 +2,27 @@ syntax = "proto3";
 package ds;
 option go_package = "github.com/vlpoc/proto/ds";
 
-import "auth/auth.proto";
-
-service DS {
-	rpc Lookup (DSQuery) returns (DSResponse);
-	rpc Register (stream Registration) returns (Empty);
-}
-
-message DSQuery {
-	string				service = 1;
-	optional auth.Actor	actor   = 2;
-}
-
-message DSResponse {
-	string	  	service    = 1;
-	auth.Actor	actor      = 2;
-	string		connstring = 3;
-}
-
-message Registration {
-	string	service    = 1;
-	string	connstring = 2;
-}
-
-message Empty{}
+// import "auth/auth.proto";
+// 
+// service DS {
+// 	rpc Lookup (DSQuery) returns (DSResponse);
+// 	rpc Register (stream Registration) returns (Empty);
+// }
+// 
+// message DSQuery {
+// 	string				service = 1;
+// 	optional auth.Actor	actor   = 2;
+// }
+// 
+// message DSResponse {
+// 	string	  	service    = 1;
+// 	auth.Actor	actor      = 2;
+// 	string		connstring = 3;
+// }
+// 
+// message Registration {
+// 	string	service    = 1;
+// 	string	connstring = 2;
+// }
+// 
+// message Empty{}
