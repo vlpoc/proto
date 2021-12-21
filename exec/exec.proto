@@ -1,0 +1,22 @@
+syntax = "proto3";
+package exec;
+option go_package = "github.com/vlpoc/proto/exec";
+
+service Exec {
+	rpc Execute(ExeSpec) returns (ExeResponse);
+}
+
+// each ExeSpec describes an executable as well as 2 lists.
+// One is a set of instreams - named pipes that the process will read from.
+// The other is a set of outstreams - named pipes that the process will output to.
+// In addition to any pipes specified here, there is always one instream ("stdin")
+// and one outstream ("stdout")
+message ExeSpec {
+	string exename = 1;
+	repeated string instream = 2;
+	repeated string outstream = 3;
+}
+
+message ExeResponse {
+	string eid = 1;
+}
